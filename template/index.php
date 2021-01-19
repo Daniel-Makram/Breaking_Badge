@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/style.css">
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <link href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" rel="stylesheet">
 
   <title>Breaking Badge</title>
 </head>
@@ -16,9 +17,13 @@
 
 
 <?php include_once('components/router.php'); ?>
-<?php include ('./pages/login.php'); ?>
+<?php include ('./pages/dashboard.php'); ?>
 
-
-  <script src="./pages/side_script.js"></script>
+<!-- if($_SESSION){
+    include('pages/dashboard.php');
+        }else{
+          include('pages/login.php');
+        } -->
+  
 </body>
 </html>
