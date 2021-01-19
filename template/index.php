@@ -16,9 +16,13 @@
 
 
 <?php include_once('components/router.php'); ?>
-<?php include ('./pages/login.php'); ?>
+<?php include ('./pages/dashboard.php'); ?>
 
-
-  <script src="./pages/side_script.js"></script>
+<!-- if($_SESSION){
+    include('pages/dashboard.php');
+        }else{
+          include('pages/login.php');
+        } -->
+  
 </body>
 </html>
