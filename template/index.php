@@ -13,6 +13,12 @@
   <title>Breaking Badge</title>
 </head>
 <body>
-  <?php include_once('components/router.php'); ?>
+
+
+<?php include_once('components/router.php'); ?>
+<?php include ('./pages/login.php'); ?>
+
+
+  <script src="./pages/side_script.js"></script>
 </body>
 </html>
