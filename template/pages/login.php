@@ -1,7 +1,8 @@
 <?php
 include_once ('./components/functions.php');
 ?>
-
+<div class="container">
+    <img class="logoBB" src="./assets/logoBB.png"/>
 <form class="formulaire_connexion" method="POST">
         <p>
             <label for="email"><b>E-mail </b></label>
@@ -15,4 +16,5 @@ include_once ('./components/functions.php');
             <input type="submit" id="confirm_connexion" value="Confirm" /> 
         </p>
 </form>
+<div>
 
