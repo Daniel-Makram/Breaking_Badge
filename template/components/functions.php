@@ -35,9 +35,9 @@
       $_SESSION['account_type'] = $results['account_type'];
       $_SESSION['email'] = $email;
 
-      return true
+      return true;
     }
-    return false
+    return false;
   }
 
   function logout(){
