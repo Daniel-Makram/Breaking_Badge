@@ -17,7 +17,7 @@
 </head>
 <body>
   <?php include_once('components/router.php');?>
-  <?php include ('./pages/dashboard.php'); ?>
+  
 
 <!-- if($_SESSION){
     include('pages/dashboard.php');
