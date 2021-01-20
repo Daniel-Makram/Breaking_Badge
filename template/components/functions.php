@@ -43,14 +43,16 @@
     session_start_once();
     session_destroy();
   }
+
+  //Display the badges by creating divs with db input
   function displayBadges($name,$shape,$desc,$color,$category){
 
     echo "<div class='".$shape."' style='background:".$color.";border-color:".$color."'><p>".$name."</p></div>";
   }
 
+  //Retrieves badges from db and displays them via the displayBadges() function 
   function getBadges(){
     session_start_once();
-
     $cursor=createCursor();
    
     $data = $cursor->query("SELECT `name`, `description`, `shape`, `color`, `category` FROM `badges` ")->fetchAll();
@@ -70,7 +72,7 @@
   function getUsers(){
 
   }
-
+  //pdo input new badges to DB
   function createBadge($badge_name,$badge_colour,$badge_desc,$badge_shape,$badge_cat){
     session_start_once();
 

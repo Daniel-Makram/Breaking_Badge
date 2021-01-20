@@ -1,6 +1,5 @@
 <?php
 
-
   function createCursor(){
     $DB_HOST = 'localhost';
     $DB_NAME = 'breaking_badge';
