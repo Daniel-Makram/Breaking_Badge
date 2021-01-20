@@ -24,11 +24,11 @@
     session_start_once();
 
     $cursor = createCursor();
-    $query = $cursor->prepare('SELECT id, password from users WHERE email=?');
+    $query = $cursor->prepare('SELECT id, password,account_type from users WHERE email=?');
     $query->execute([$email]);
     $results = $query->fetch();
     
-    $cursor->closeCursor();
+    //$cursor->closeCursor();
 
     if(password_verify($password, $results['password'])){
       $_SESSION['user_id'] = $results['id'];
@@ -46,10 +46,13 @@
   }
 
   function getBadges(){
+   
+
 
   }
 
   function getUsers(){
+   
 
   }
 

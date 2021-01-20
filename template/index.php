@@ -1,7 +1,3 @@
-<?php
-  session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +12,7 @@
 
 
 <?php include_once('components/router.php'); ?>
-<?php include ('./pages/login.php'); ?>
+<?php include ('./pages/dashboard.php'); ?>
 
 
   <script src="./pages/side_script.js"></script>

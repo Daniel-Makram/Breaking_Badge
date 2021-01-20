@@ -1,9 +1,14 @@
-<?php
-include_once ('./components/functions.php');
-?>
+
+
+ 
+
+
+
+
+
 <div class="container">
     <img class="logoBB" src="./assets/logoBB.png"/>
-<form class="formulaire_connexion" method="POST">
+<form action='components/loginControl.php' class="formulaire_connexion" method="POST">
         <p>
             <label for="email"><b>E-mail </b></label>
             <input type="email" name="email" placeholder="Enter a valid e-mail adress..."  />
