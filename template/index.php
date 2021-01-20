@@ -1,7 +1,3 @@
-<?php
-  session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +15,14 @@
   <?php include_once('components/router.php');?>
   <?php include ('./pages/dashboard.php'); ?>
 
+
 <!-- if($_SESSION){
     include('pages/dashboard.php');
         }else{
           include('pages/login.php');
         } -->
   
+
 </body>
 </html>
 

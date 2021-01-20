@@ -24,7 +24,7 @@
     session_start_once();
 
     $cursor = createCursor();
-    $query = $cursor->prepare('SELECT id, password from users WHERE email=?');
+    $query = $cursor->prepare('SELECT id, password,account_type from users WHERE email=?');
     $query->execute([$email]);
     $results = $query->fetch();
     
@@ -52,6 +52,10 @@
 
   //Retrieves badges from db and displays them via the displayBadges() function 
   function getBadges(){
+
+   
+
+
     session_start_once();
     $cursor=createCursor();
    
@@ -67,9 +71,11 @@
 //       echo "<br />\n";
 }
 
+
   }
 
   function getUsers(){
+   
 
   }
   //pdo input new badges to DB
