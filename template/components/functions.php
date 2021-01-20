@@ -43,11 +43,13 @@
     session_start_once();
     session_destroy();
   }
+
   //Display the badges by creating divs with db input
   function displayBadges($name,$shape,$desc,$color,$category){
 
     echo "<div class='".$shape."' style='background:".$color.";border-color:".$color."'><p>".$name."</p></div>";
   }
+
   //Retrieves badges from db and displays them via the displayBadges() function 
   function getBadges(){
     session_start_once();
