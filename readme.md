@@ -1,35 +1,48 @@
-![BreakingBadge](./logoReadme.png)
+![BreakingBadge](breakingbadge.png)
 
-# Fullstack Group Project - Breaking Badge
+# Breaking Badge
 
-made by [Thomas BOUR](https://github.com/ThomasBour), [Bérengère CARPENTIER](https://github.com/carpentierberengere), [Daniel MAKRAM](https://github.com/Daniel-Makram) & [Abdelilah ZAIDI](https://github.com/abdelilahzaidi), trainees @ :office: Becode.
+Create the best badge attribution platform and break the internet!
 
-:eye_speech_bubble: start date : 19/01/2021, 9am.  
+- Type of challenge: **consolidation**  
+- Duration: **3 days**  
+- Team challenge: **team of 4**
+- Deadline: **21/01/2021 19:00**
+- [Submission form](https://forms.gle/UmTTfyF59kueUYhh7)
 
-:eye_speech_bubble: end date : 21/01/2021, 7pm. 
+## Learning objectives
+- Create a fullstack application
+- Create a relational database, with many-to-many relationships
+- Split the logic of your app using a view-controller approach
+- Design a basic permission system
 
-:eye_speech_bubble: Link to our group's [**project manager**](https://github.com/Daniel-Makram/Breaking_Badge/projects/1).
+## The Mission
 
-# Breaking Badge 
-Breaking Badge is an online platform to grant badges to users. 
-Users can track their progression through their dashboards and visualise all of their aquired badges.  
-Admins can track users progression through their dashboard, as well as grant badges, create new badges and visualise all of the already existing badges.  
-Both parties can visualize some data through a stats view on their dashboards.
+Create a badge attribution system from an existing codebase. 
 
-# What did we do ?
-Following instructions, we had to base ourselves on some template code and create a functionning fullstack app to grant badges and have a admin view only dashboard and a user only view dashboard.  
-
-We have to use a relational database with many-to-many relationships and design a simple permission system. 
-
-# What did we use ? 
-
-* HTML/CSS
-* PHP/PHPmyadmin
-* MySQL
-
-# Ressources
-
-* OpenClassroom
-* [Becode **Instructions**](https://github.com/becodeorg/bxl-hopper-1-25/tree/master/The%20Mountain/12.PHP/0.Projects/4.breaking_badge)
+- The login system is already partly done (you still have to create the frontend)
+- You must find a way to store badges into a database. A badge consists at least of the following properties:
+  - A name
+  - A description
+  - A distinctive shape and color
+- There is two account types:
+  - `ADMIN`s who can create/edit/delete badges and grant them.
+  - `NORMIE`s who can receive badges
+- You must keep most of the logic outside of pages, into functions, for readability
+- BONUS: Organize badges by topics so you can display a progression
 
 
+## Feature list
+
+- [ ] Page to list all the badges (admin only)
+- [ ] Page to list all the users (admin only)
+- [ ] Possibility to create a badge (admin only)
+- [ ] Possibility for admin to grant badges and for normal users to see their awarded badges.
+- [ ] Possibility for admin to add new users in the system.
+- [ ] Create a stats view for both admins and enduser
+
+## Resources
+- [The starter template](template)
+- [The users table (for login)](users.sql)
+  - ADMIN LOGIN: `admin@example.com` | PASSWORD: `GraceHopper<3`
+  - NORMIE LOGIN: `normie@example.com` | PASSWORD: `I<3PHP`

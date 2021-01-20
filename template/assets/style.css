@@ -1,147 +1,113 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
-/*------------------------------body style-------------------------------*/
-*{
-    font-family:'Source Sans Pro', sans-serif;
-}
-body {
-    margin: 0;
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    background-image: url('./background.png'); /* src image : https://www.pexels.com/photo/modern-art-painting-in-white-950241/*/
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-/*------------------------------login page style------------------------*/
-.container{
-    width: 500px;
-    margin: 0 auto;
-    margin-top: 5%;
-}
-
-.formulaire_connexion {
-    margin: 40px;
-    padding: 30px;
-    border-radius: 20px;
-    background: #fff;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-input[type=email],
-input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius:15px;
-    box-sizing: border-box;
-}
-#confirm_connexion {
-    background-color: black;
+/* ----------Badges---------- */
+.shapes{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-    letter-spacing: 3px;
-    font-weight: bold;
-    border-radius: 15px;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
 }
-#confirm_connexion:hover {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
+.shapes :hover{
+  filter: opacity(80%) blur(.5px);
+  cursor: pointer;
+}
+.shapes *{
+    margin:0 0 10px 10px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    /* max-width: 70px;
+    max-height: 70px; */
+
+}
+.shapes * p{
+  margin: 0;
+  padding: 0;
+}
+.shapes .triangle p{
+  margin-top: 14vh;
+}
+.shapes .parallelogram p {
+  transform: skew(-20deg);
+}
+.talkbubble,.parallelogram{
+    margin-left: 30px;
 }
 
-/*------------------------------------------dashboard style--------------------------*/
-
-/*header dashboard*/
-.header{
-  overflow:hidden;
-  padding:20px 10px;
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-.header a{
-  color:black;
-  text-align:center;
-  text-decoration: none;
-  font-size:15px;
-}
-.header a:hover{
-  color:grey;
-}
-.header-right {
-  display: flex;
-}
-@media screen and (max-width: 500px) {
-  .header a {
-      float: none;
-      display: block;
-      text-align: left;
+.square {
+    width: 100px;
+    height: 100px;
+    background: tomato;
   }
 
-  .header-right {
-      float: none;
+.circle {
+    width: 100px;
+    height: 100px;
+    background: tomato;
+    border-radius: 50%
   }
-}
 
-/*user view*/
-.dash{
-  display:flex;
-}
-.user_view{
-  width: 224px;
-  height: 588px;
-  background-color: rgb(0, 0, 0, 0.9);
-  margin-left:3%;
-  border-radius: 18px 0px 0px 18px;
-  
-}
-h1{
-  color:whitesmoke;
-  text-align: center;
-}
-.container_box{
-  display:flexbox;
-}
-.user_info{
-  height:150px;
-  width:900px;
-  background-color: rgb(0, 0, 0, 0.9);
-  color:white;
-  margin-left:2%;
-  border-radius: 0px 18px 18px 0px;
-}
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid tomato;
+  }
 
-.user_dash{
-  height:400px;
-  width:900px;
-  
-  margin-left:2%;
-  margin-top:2%;
-  border-radius: 0px 18px 18px 0px;
+.parallelogram {
+    width: 150px;
+    height: 100px;
+    transform: skew(20deg);
+    background: tomato;
+  }
+.talkbubble {
+    width: 120px;
+    height: 80px;
+    background: tomato;
+    position: relative;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+.talkbubble:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 26px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 26px solid ; 
+    border-bottom: 13px solid transparent;
+    border-right-color: inherit;
+    
+  }
+.rectangle {
+    width: 200px;
+    height: 100px;
+    background: tomato;
+  }
+
+/* ---------</Badges>--------------- */
+
+/* --------- Affichage des badges ----------*/
+.badge__form--column{
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  /* width: 50vw; */
+  align-items: center;
 }
-.badgePlus{
-  width:400px;
-  height:400px;
-  background-color: rgb(0, 0, 0, 0.8);
-  border-radius:18px;
+.badge__form--column label{
+  font-family: 'Roboto', sans-serif;
 }
-.progression{
-  width:400px;
-  height:400px;
-  background-color: rgb(0, 0, 0, 0.8);
-  border-radius:18px;
+.badge__form--row{
+  display: flex;
+  flex-flow: row ,nowrap;
+}
+.badge__form--row *{
+  margin: 5px;
 }
 
-
-
-
-
-
+/*-------- Fin Affichage badges ---------*/
