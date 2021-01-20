@@ -20,14 +20,12 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `users`
 --
-CREATE DATABASE Breaking_Badge;
-USE Breaking_Badge;
+
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `badges`
 --
-
 
 DROP TABLE IF EXISTS `badges`;
 CREATE TABLE IF NOT EXISTS `badges` (

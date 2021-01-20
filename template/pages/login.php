@@ -1,11 +1,4 @@
 
-
- 
-
-
-
-
-
 <div class="container">
     <img class="logoBB" src="./assets/logoBB.png"/>
 <form action='components/loginControl.php' class="formulaire_connexion" method="POST">
