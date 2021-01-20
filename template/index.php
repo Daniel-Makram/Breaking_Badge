@@ -10,7 +10,9 @@
   <link rel="stylesheet" href="assets/style.css">
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
   <link href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  
   <title>Breaking Badge</title>
 </head>
 <body>

@@ -142,6 +142,118 @@ h1{
 
 
 
+/* ----------Badges---------- */
+.shapes{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+}
+.shapes :hover{
+filter: opacity(80%) blur(.5px);
+cursor: pointer;
+}
+.shapes *{
+  margin:0 0 10px 10px;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  /* max-width: 70px;
+  max-height: 70px; */
 
+}
+.shapes * p{
+margin: 0;
+padding: 0;
+}
+.shapes .triangle p{
+margin-top: 14vh;
+}
+.shapes .parallelogram p {
+transform: skew(-20deg);
+}
+.talkbubble,.parallelogram{
+  margin-left: 30px;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background: tomato;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background: tomato;
+  border-radius: 50%
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid tomato;
+}
+
+.parallelogram {
+  width: 150px;
+  height: 100px;
+  transform: skew(20deg);
+  background: tomato;
+}
+.talkbubble {
+  width: 120px;
+  height: 80px;
+  background: tomato;
+  position: relative;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+.talkbubble:before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 26px;
+  width: 0;
+  height: 0;
+  border-top: 13px solid transparent;
+  border-right: 26px solid ; 
+  border-bottom: 13px solid transparent;
+  border-right-color: inherit;
+  
+}
+.rectangle {
+  width: 200px;
+  height: 100px;
+  background: tomato;
+}
+
+/* ---------</Badges>--------------- */
+
+/* --------- Affichage des badges ----------*/
+.badge__form--column{
+display: flex;
+flex-direction: column;
+/* width: 50vw; */
+align-items: center;
+}
+.badge__form--column label{
+font-family: 'Roboto', sans-serif;
+}
+.badge__form--row{
+display: flex;
+flex-flow: row ,nowrap;
+}
+.badge__form--row *{
+margin: 5px;
+}
+
+/*-------- Fin Affichage badges ---------*/
 
 
