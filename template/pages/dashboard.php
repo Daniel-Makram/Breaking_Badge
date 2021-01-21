@@ -1,4 +1,10 @@
-<?php include ('./pages/header.php');?>
+<?php 
+if(!isAuthenticated()){
+
+  header("location: ./index.php?error=loginFirst");
+}
+
+?>
 <section class="dash">
 
 <div class="user_view">
@@ -6,19 +12,12 @@
   
 </div>
 
-<div class="container_box">
-<div class="user_info">
-  
-</div>
+<?php if (isAdmin ()) {include('./pages/adminDash.php');}
+else{
+  include ('./pages/userDash.php');
+}
+?>
+<!--if admin include (./pages/adminDash.php)--> 
 
-<div class="user_dash">
-  <div class="badgePlus">
-    <h1> Acquired Badges </h1>
-  </div>
-  <div class="progression">
-    <h1> Your Progression </h1>
-  </div>
-</div>
-</div>
 
 </section>

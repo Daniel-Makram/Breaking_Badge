@@ -12,7 +12,7 @@
 
   function isAuthenticated(){
     session_start_once();
-    return !empty($_SESSION['id']);
+    return !empty($_SESSION['user_id']);
   }
 
   function isAdmin(){
@@ -22,9 +22,9 @@
 
   function login($email, $password){
     session_start_once();
-
+    phpAlert('test');
     $cursor = createCursor();
-    $query = $cursor->prepare('SELECT id, password,account_type from users WHERE email=?');
+    $query = $cursor->prepare("SELECT `id`,`password`,`account_type` FROM users WHERE email=?");
     $query->execute([$email]);
     $results = $query->fetch();
     
