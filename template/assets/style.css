@@ -61,8 +61,8 @@ input[type=password],input[type=text] {
   overflow:hidden;
   padding:20px 10px;
   display:flex;
-  align-items:center;
-  justify-content: space-between;
+  align-items:flex-start;
+  
   margin-bottom: 10px;
 }
 .header a{
@@ -76,6 +76,24 @@ input[type=password],input[type=text] {
 }
 .header-right {
   display: flex;
+  flex-direction:row-reverse;
+  align-self: center;
+  margin-left:auto;
+}
+
+
+nav ul{
+  list-style:none;
+  
+  display:flex;
+}
+nav ul li{
+  color:black;
+  margin-right:10px;
+}
+nav ul li a:hover{
+  color:black;
+  
 }
 @media screen and (max-width: 500px) {
   .header a {
@@ -85,7 +103,8 @@ input[type=password],input[type=text] {
   }
 
   .header-right {
-      float: none;
+     display:flex;
+     flex-direction:row-reverse;
   }
 }
 

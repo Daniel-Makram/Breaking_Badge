@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once("components/functions.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +17,21 @@
   <title>Breaking Badge</title>
 </head>
 <body>
-  <?php include_once('components/router.php');?>
-  <?php include ('./pages/dashboard.php'); ?>
+  <?php 
+  if(isAuthenticated()){
+    include_once('./components/router.php');
+  }else{
+    if(isset($_GET['error'])){
+      if($_GET['error']=='loginFirst'){
+        phpAlert('Please Login first');
+      }else if($_GET['error']=='invalidCredentials'){
+        phpAlert('Wrong Credentials');
+      }
+    }else{
+      include_once('pages/login.php');}
+  }
+  ?>
+  
 
 
 <!-- if($_SESSION){
