@@ -25,12 +25,15 @@ if(!isAuthenticated()){
   </div>
 
 
-  <?php if (isAdmin ()) {include('./pages/adminDash.php');}
-  else{
-    include ('./pages/userDash.php');
-  }
-  ?>
-  <!--if admin include (./pages/adminDash.php)--> 
-
+<?php if (isAdmin ()) {
+                        include('./pages/adminDash.php');
+                        
+}
+else{
+  include ('./pages/userDash.php');
+  
+}
+?>
+<!--if admin include (./pages/adminDash.php)--> 
 
 </section>
