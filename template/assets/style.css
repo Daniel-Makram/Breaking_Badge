@@ -6,7 +6,7 @@
 body {
     margin: 0;
     min-height: 100vh;
-    display: grid;
+    /* display: grid; */
     grid-template-rows: auto 1fr auto;
     background-image: url('./background.png'); /* src image : https://www.pexels.com/photo/modern-art-painting-in-white-950241/*/
     background-repeat: no-repeat;
@@ -29,13 +29,14 @@ body {
 input[type=email],
 input[type=password],input[type=text] {
     width: 100%;
-    padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius:15px;
     box-sizing: border-box;
 }
+input[type=email],
+input[type=password]{padding: 12px 20px;}
 #confirm_connexion {
     background-color: black;
     color: white;
@@ -120,7 +121,7 @@ nav ul li a:hover{
   border-radius: 18px 0px 0px 18px;
   
 }
-h1{
+h1,.userInfo{
   color:whitesmoke;
   text-align: center;
 }
@@ -255,22 +256,27 @@ transform: skew(-20deg);
 
 /* ---------</Badges>--------------- */
 
+
 /* --------- Affichage des badges ----------*/
 .badge__form--column{
-display: flex;
-flex-direction: column;
-/* width: 50vw; */
-align-items: center;
+  display: flex;
+  /* flex-direction: column; */
+  /* width: 50vw; */
+  align-items: center;
+}
+.badge__form--column h2{
+  align-self: flex-start;
 }
 .badge__form--column label{
-font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .badge__form--row{
-display: flex;
-flex-flow: row ,nowrap;
+  display: flex;
+  flex-flow: column nowrap;
 }
 .badge__form--row *{
-margin: 5px;
+  margin: 5px;
+  padding: 0px;
 }
 
 /*-------- Fin Affichage badges ---------*/

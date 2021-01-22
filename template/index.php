@@ -26,6 +26,7 @@ require_once("components/functions.php");
         phpAlert('Please Login first');
       }else if($_GET['error']=='invalidCredentials'){
         phpAlert('Wrong Credentials');
+        include_once('pages/login.php');
       }
     }else{
       include_once('pages/login.php');}

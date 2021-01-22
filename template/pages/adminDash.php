@@ -15,16 +15,6 @@
   
   <div class="progression">
     <h1> Users </h1>
-    <?php
-    include ('./pages/addUser.php');
-    ?>
-  </div>
-</div>
 
-<div class="display_badge">
-    <h1> Display Badges </h1>
-    <?php
-    getBadges();
-    ?>
-</div>
+  </div>
 </div>
