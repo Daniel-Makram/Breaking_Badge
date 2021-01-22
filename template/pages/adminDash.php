@@ -1,6 +1,6 @@
 <div class="container_box">
 
-<div class="user_info">
+<div class="admin_info">
 <?php
     include ('./pages/createBadge.php');
     ?>
@@ -10,12 +10,15 @@
   
 <div class="badgePlus">
     <h1> Grant Badges </h1>
-    
+    <?php
+    include ('./pages/giveBadge.php');
+    ?>
   </div>
   
   <div class="progression">
   <div class="addUser">
     <h1> Users </h1>
+
     <span style="color: white;" onclick="document.getElementClass("formulaire_connexion");">
     <a href="#id01"><i class="fas fa-user-plus" id='addUsers'></i></a>  
   </div>
@@ -32,16 +35,14 @@
                         
                           ?>
     </div>
-    
+
+
+
+
   </div>
+
 </div>
 
-<div class="display_badge">
-    <h1> Display Badges </h1>
-    <?php
-    getBadges();
-    ?>
-</div>
 </div>
 
 

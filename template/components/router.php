@@ -9,6 +9,10 @@
 
   $routes['CreateBadge'] = 'Create Badges';
   $routes['CreateUser']='Create User';
+
+  
+
+
   include_once('navbar.php');
   
   if(isset($_GET["success"])) {

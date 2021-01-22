@@ -1,7 +1,6 @@
 <?php
   include_once('db.php');
 
-
   // Similar to "include_once" but for sessions
   // Calls "session_start()" unless it has already been called on the page
   function session_start_once(){
@@ -22,7 +21,7 @@
 
   function login($email, $password){
     session_start_once();
-    phpAlert('test');
+
     $cursor = createCursor();
     $query = $cursor->prepare("SELECT `id`,`password`,`account_type` FROM users WHERE email=?");
     $query->execute([$email]);
@@ -46,56 +45,48 @@
 
   //Display the badges by creating divs with db input
   function displayBadges($name,$shape,$desc,$color,$category){
-
     echo "<div class='".$shape."' style='background:".$color.";border-color:".$color."'><p>".$name."</p></div>";
   }
 
   //Retrieves badges from db and displays them via the displayBadges() function 
-  function getBadges(){
+
+  function getBadges($user_to_check_badges){
 
     session_start_once();
     $cursor=createCursor();
-   
-    $data = $cursor->query("SELECT `name`, `description`, `shape`, `color`, `category` FROM `badges` ")->fetchAll();
+    if($user_to_check_badges=='all'){
+
+      $sql="SELECT `name`, `description`, `shape`, `color`, `category` FROM `badges` ";
+    }else{
+      $sql="SELECT `name`, `description`, `shape`, `color`, `category` FROM `badges` INNER JOIN users_has_badges ON badges.id = users_has_badges.idBadges INNER JOIN users ON users.id = users_has_badges.idUsers WHERE idUsers=".$user_to_check_badges;
+    }    $data = $cursor->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     // and somewhere later:
     foreach ($data as $rows) {
-      // print_r($rows);
-      displayBadges($rows['name'],$rows['shape'],$rows['description'],$rows['color'],$rows['category']);
-      // echo $rows['name'].'  '.$rows['shape'].'  '. $rows['description'].'  '.$rows['color'].'  '.$rows['category']."<br />\n";
-//       foreach($rows as $row){
-//         echo $row . '  ';     
-//       }
-//       echo "<br />\n";
-          }
+
+      displayBadges($rows['name'],$rows['shape'],$rows['description'],$rows['color'],$rows['category']);     
+    }
+
   }
+  
+  
+  
 
-function  createUsers($email,$password,$firstname,$lastname,$account_type)
-{
-  session_start_once();
-
-  $hashedPwd = password_hash($password, PASSWORD_DEFAULT);;
-    $data = [
-      'email' => $email,
-      'password' => $hashedPwd,
-      'firstname' => $firstname,
-      'lastname' => $lastname,
-      'account_type' => $account_type,
-    ];
-    $cursor=createCursor();
-    $sql = "INSERT INTO `users`( `email`, `password`, `firstname`, `lastname`, `account_type`) VALUES (:email, :password, :firstname, :lastname, :account_type)";
-    $stmt= $cursor->prepare($sql);
-    $stmt->execute($data);
-}
 
   function getUsers(){
     session_start_once();
     $cursor=createCursor();
 
-    $data = $cursor->query("SELECT firstname, lastname, account_type FROM users ")->fetchAll(PDO::FETCH_ASSOC);
-    // and somewhere later:
 
+
+
+   
+    $data = $cursor->query("SELECT `firstname`, `lastname`,id,email,account_type FROM `users` ")->fetchAll(PDO::FETCH_ASSOC);
+    // and somewhere later:
+    
       return $data;
       // echo($rows['firstname'].' '.$rows['lastname'].'</br>');
+  
+
 
 }
   //pdo input new badges to DB
@@ -124,8 +115,29 @@ function  createUsers($email,$password,$firstname,$lastname,$account_type)
   }
 
   function grantBadgeToUser($badge_id, $user_id){
+    session_start_once();
+    $db=createCursor();
+    $req = $db->prepare('INSERT INTO users_has_badges(idUsers,idBadges) SELECT (users.id, badges.id FROM (users) INNER JOIN (badges) WHERE users.id=? AND badges.id=?');
+    $affectedLines = $req->execute($badge_id, $user_id);
+    
+}
+function  createUsers($email,$password,$firstname,$lastname,$account_type)
+{
+  session_start_once();
 
-  }
+  $hashedPwd = password_hash($password, PASSWORD_DEFAULT);;
+    $data = [
+      'email' => $email,
+      'password' => $hashedPwd,
+      'firstname' => $firstname,
+      'lastname' => $lastname,
+      'account_type' => $account_type,
+    ];
+    $cursor=createCursor();
+    $sql = "INSERT INTO `users`( `email`, `password`, `firstname`, `lastname`, `account_type`) VALUES (:email, :password, :firstname, :lastname, :account_type)";
+    $stmt= $cursor->prepare($sql);
+    $stmt->execute($data);
+}
 
   function removeBadgeFromUser($badge_id, $user_id){
 
@@ -133,4 +145,13 @@ function  createUsers($email,$password,$firstname,$lastname,$account_type)
   function phpAlert($msg){
     echo'<script type="text/javascript">alert("'.$msg.'")</script>';
   }
-?>
+
+  // function badgesAverage(){
+  //   session_start_once();
+  //   $cursor=createCursor();
+    
+  //   $sql="SELECT `name`, `description`, `shape`, `color`, `category` FROM `badges` ";
+  //   $data = $cursor->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+  //   // and somewhere later:
+  //  return $data
+  // }
