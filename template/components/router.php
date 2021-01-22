@@ -7,7 +7,7 @@
   $routes['badges'] = 'All badges';
   $routes['students'] = 'All students';
 
-  $routes['CreateBadge'] = 'Create Badges';
+  
 
   include_once('navbar.php');
   

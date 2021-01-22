@@ -8,8 +8,10 @@ if(!isAuthenticated()){
 <section class="dash">
 
 <div class="user_view">
-  <h1 class="title_user">Welcome back User!</h1>
+  <h1 class="title_user">Welcome back </h1>
+  <h2>
   
+  </h2>
 </div>
 
 <?php if (isAdmin ()) {include('./pages/adminDash.php');}
