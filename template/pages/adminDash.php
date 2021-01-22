@@ -17,16 +17,8 @@
   
   <div class="progression">
     <h1> Users </h1>
-    
-  </div>
-</div>
 
-<div class="display_badge">
-    <h1> Display Badges </h1>
-    <div class="badgeDisplay">
-    <?php
-    getBadges('all');
-    ?>
-    </div>
-</div>
+
+  </div>
+
 </div>
