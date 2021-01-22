@@ -17,7 +17,7 @@
 
   function isAdmin(){
     session_start_once();
-    return isAuthenticated && $_SESSION['account_type'] == 'ADMIN';
+    return isAuthenticated() && $_SESSION['account_type'] == 'ADMIN';
   }
 
   function login($email, $password){
@@ -53,9 +53,6 @@
   //Retrieves badges from db and displays them via the displayBadges() function 
   function getBadges(){
 
-   
-
-
     session_start_once();
     $cursor=createCursor();
    
@@ -69,15 +66,38 @@
 //         echo $row . '  ';     
 //       }
 //       echo "<br />\n";
+          }
+  }
+
+function  createUsers($email,$password,$firstname,$lastname,$account_type)
+{
+  session_start_once();
+
+  $hashedPwd = password_hash($password, PASSWORD_DEFAULT);;
+    $data = [
+      'email' => $email,
+      'password' => $hashedPwd,
+      'firstname' => $firstname,
+      'lastname' => $lastname,
+      'account_type' => $account_type,
+    ];
+    $cursor=createCursor();
+    $sql = "INSERT INTO `users`( `email`, `password`, `firstname`, `lastname`, `account_type`) VALUES (:email, :password, :firstname, :lastname, :account_type)";
+    $stmt= $cursor->prepare($sql);
+    $stmt->execute($data);
 }
 
-
-  }
-
   function getUsers(){
-   
+    session_start_once();
+    $cursor=createCursor();
 
-  }
+    $data = $cursor->query("SELECT firstname, lastname, account_type FROM users ")->fetchAll(PDO::FETCH_ASSOC);
+    // and somewhere later:
+
+      return $data;
+      // echo($rows['firstname'].' '.$rows['lastname'].'</br>');
+
+}
   //pdo input new badges to DB
   function createBadge($badge_name,$badge_colour,$badge_desc,$badge_shape,$badge_cat){
     session_start_once();
