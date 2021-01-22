@@ -10,7 +10,7 @@ made by [Thomas BOUR](https://github.com/ThomasBour), [Bérengère CARPENTIER](h
 
 :eye_speech_bubble: Link to our group's [**project manager**](https://github.com/Daniel-Makram/Breaking_Badge/projects/1).
 
-:eye_speech_bubble: Link to [**deployed website** ](http://danielmakramghatas.be/template/).
+:eye_speech_bubble: Link to [**deployed website** ](http://danielmakramghatas.be/template/), Breaking Badge !
 
 # Breaking Badge 
 Breaking Badge is an online platform to grant badges to users. 
@@ -22,6 +22,18 @@ Both parties can visualize some data through a stats view on their dashboards.
 Following instructions, we had to base ourselves on some template code and create a functionning fullstack app to grant badges and have a admin view only dashboard and a user only view dashboard.  
 
 We have to use a relational database with many-to-many relationships and design a simple permission system. 
+
+On our website, the following features are available:
+* Admin
+  - List all badges
+  - Create new badges 
+  - Add new users
+  - Visualize who got which badge
+* User (still implementing features)
+  - Can receive badges  
+  
+In the future, we'll work some more on this project and add some features that we did not have time to make (grant badges, mofify/delete badges, take away badges from users,...)  
+
 
 # What did we use ? 
 
