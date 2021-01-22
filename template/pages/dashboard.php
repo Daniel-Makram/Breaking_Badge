@@ -7,6 +7,7 @@ if(!isAuthenticated()){
 ?>
 <section class="dash">
 
+
   <div class="user_view">
     <?php 
       $rows= getUsers();
@@ -22,6 +23,7 @@ if(!isAuthenticated()){
     
   
   </div>
+
 
   <?php if (isAdmin ()) {include('./pages/adminDash.php');}
   else{

@@ -53,6 +53,7 @@
     session_start_once();
     $cursor=createCursor();
     if($user_to_check_badges=='all'){
+
       $sql="SELECT `name`, `description`, `shape`, `color`, `category` FROM `badges` ";
     }else{
       $sql="SELECT `name`, `description`, `shape`, `color`, `category` FROM `badges` INNER JOIN users_has_badges ON badges.id = users_has_badges.idBadges INNER JOIN users ON users.id = users_has_badges.idUsers WHERE idUsers=".$user_to_check_badges;
@@ -61,11 +62,16 @@
     foreach ($data as $rows) {
       displayBadges($rows['name'],$rows['shape'],$rows['description'],$rows['color'],$rows['category']);     
     }
+
   }
+  
+  
+  
 
   function getUsers(){
     session_start_once();
     $cursor=createCursor();
+
    
     $data = $cursor->query("SELECT `firstname`, `lastname`,id,email,account_type FROM `users` ")->fetchAll(PDO::FETCH_ASSOC);
     // and somewhere later:
@@ -73,6 +79,7 @@
       return $data;
       // echo($rows['firstname'].' '.$rows['lastname'].'</br>');
   
+
 }
   //pdo input new badges to DB
   function createBadge($badge_name,$badge_colour,$badge_desc,$badge_shape,$badge_cat){
@@ -100,8 +107,12 @@
   }
 
   function grantBadgeToUser($badge_id, $user_id){
-
-  }
+    session_start_once();
+    $db=createCursor();
+    $req = $db->prepare('INSERT INTO users_has_badges(idUsers,idBadges) SELECT (users.id, badges.id FROM (users) INNER JOIN (badges) WHERE users.id=? AND badges.id=?');
+    $affectedLines = $req->execute($badge_id, $user_id);
+    
+}
 
   function removeBadgeFromUser($badge_id, $user_id){
 
