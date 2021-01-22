@@ -10,6 +10,8 @@ made by [Thomas BOUR](https://github.com/ThomasBour), [Bérengère CARPENTIER](h
 
 :eye_speech_bubble: Link to our group's [**project manager**](https://github.com/Daniel-Makram/Breaking_Badge/projects/1).
 
+:eye_speech_bubble: Link to **deployed website** 
+
 # Breaking Badge 
 Breaking Badge is an online platform to grant badges to users. 
 Users can track their progression through their dashboards and visualise all of their aquired badges.  
