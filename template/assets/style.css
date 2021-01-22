@@ -27,7 +27,7 @@ body {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 input[type=email],
-input[type=password],input[type=text] {
+input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -35,6 +35,13 @@ input[type=password],input[type=text] {
     border: 1px solid #ccc;
     border-radius:15px;
     box-sizing: border-box;
+}
+input[type=text]{ /*input formulaire creation de badges*/
+    border-radius:15px;
+    box-sizing:border-box;
+    border: 1px solid #ccc;
+    width:150px;
+
 }
 #confirm_connexion {
     background-color: black;
@@ -157,6 +164,21 @@ h1{
   height:400px;
   background-color: rgb(0, 0, 0, 0.8);
   border-radius:18px;
+}
+/*administrator view*/
+.admin_info{
+  height:250px;
+  width:900px;
+  background-color: rgb(0, 0, 0, 0.9);
+  color:white;
+  margin-left:2%;
+  border-radius: 0px 18px 18px 0px;
+}
+.display_badge h1{
+  color:black;
+}
+.badgeDisplay{
+  display:flex;
 }
 
 

@@ -17,7 +17,7 @@
 
   function isAdmin(){
     session_start_once();
-    return isAuthenticated && $_SESSION['account_type'] == 'ADMIN';
+    return isAuthenticated() && $_SESSION['account_type'] == 'ADMIN';
   }
 
   function login($email, $password){
@@ -51,33 +51,35 @@
   }
 
   //Retrieves badges from db and displays them via the displayBadges() function 
-  function getBadges(){
-
-   
-
-
+  function getBadges($user_to_check_badges){
     session_start_once();
     $cursor=createCursor();
-   
-    $data = $cursor->query("SELECT `name`, `description`, `shape`, `color`, `category` FROM `badges` ")->fetchAll();
+    if($user_to_check_badges=='all'){
+      $sql="SELECT id,name, description, shape, color, category FROM badges ";
+    }else{
+      $sql="SELECT name, description, shape, color, category FROM badges INNER JOIN users_has_badges ON badges.id = users_has_badges.idBadges INNER JOIN users ON users.id = users_has_badges.idUsers WHERE idUsers=".$user_to_check_badges;
+    }
+    $data = $cursor->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    return $data;
     // and somewhere later:
-    foreach ($data as $rows) {
-      // print_r($rows);
-      displayBadges($rows['name'],$rows['shape'],$rows['description'],$rows['color'],$rows['category']);
-      // echo $rows['name'].'  '.$rows['shape'].'  '. $rows['description'].'  '.$rows['color'].'  '.$rows['category']."<br />\n";
-//       foreach($rows as $row){
-//         echo $row . '  ';     
-//       }
-//       echo "<br />\n";
-}
-
-
+    //foreach ($data as $rows) {
+        //displayBadges($rows['name'],$rows['shape'],$rows['description'],$rows['color'],$rows['category']);
   }
+  
+  
+  
 
   function getUsers(){
-   
+    session_start_once();
+    $cursor=createCursor();
 
-  }
+    $data = $cursor->query("SELECT firstname, lastname,id FROM users ")->fetchAll(PDO::FETCH_ASSOC);
+    // and somewhere later:
+
+      return $data;
+      // echo($rows['firstname'].' '.$rows['lastname'].'</br>');
+
+}
   //pdo input new badges to DB
   function createBadge($badge_name,$badge_colour,$badge_desc,$badge_shape,$badge_cat){
     session_start_once();
@@ -104,8 +106,12 @@
   }
 
   function grantBadgeToUser($badge_id, $user_id){
-
-  }
+    session_start_once();
+    $db=createCursor();
+    $req = $db->prepare('INSERT INTO users_has_badges(idUsers,idBadges) SELECT (users.id, badges.id FROM (users) INNER JOIN (badges) WHERE users.id=? AND badges.id=?');
+    $affectedLines = $req->execute($badge_id, $user_id);
+    
+}
 
   function removeBadgeFromUser($badge_id, $user_id){
 
