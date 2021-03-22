@@ -43,7 +43,10 @@ In the future, we'll work some more on this project and add some features that w
 
 # Ressources
 
-* OpenClassroom
+- [The users table (for login)](users.sql)
+  - ADMIN LOGIN: `admin@example.com` | PASSWORD: `GraceHopper<3`
+  - NORMIE LOGIN: `normie@example.com` | PASSWORD: `I<3PHP`
+
 * [Becode **Instructions**](https://github.com/becodeorg/bxl-hopper-1-25/tree/master/The%20Mountain/12.PHP/0.Projects/4.breaking_badge)
 
 
